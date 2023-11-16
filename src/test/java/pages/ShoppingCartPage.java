@@ -1,0 +1,48 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ShoppingCartPage {
+
+    WebDriver driver;
+
+
+    @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[4]/a/i")
+    WebElement shoppingCartBtn;
+
+    String Page_URL= "https://opencart.abstracta.us/index.php?route=checkout/cart";
+    public ShoppingCartPage(WebDriver driver){
+    this.driver = driver;
+    PageFactory.initElements(driver, this);
+
+    }
+    public void goToShoppingCart(){
+       shoppingCartBtn.click();
+    }
+    public void emptyCart(){
+        List <WebElement> Items = driver.findElements(By.xpath("//*[@class= \"fa fa-times-circle\"]"));
+        for (WebElement i :Items) {
+            i.click();
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+    //button//i[@class="fa fa-times-circle"]
+
+}
