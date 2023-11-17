@@ -9,7 +9,8 @@ import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC_AddToCart_001 {
+public class TC_AddToCart_002 {
+
     WebDriver driver;
     LoginPage objLogin;
     HomePage objHomePage;
@@ -39,19 +40,16 @@ public class TC_AddToCart_001 {
 
     }
 
-    public String item;
+    public String item = "MacBook";
 
     @Test(priority=1)
-    public void Add_All_Items_To_Cart(){
+    public void Add_Specific_Item_To_Cart(){
 
-        for ( String i: Universal.SearchedItems) {
-            Universal.CurrentItem = i;
+            Universal.CurrentItem = item;
             objHomePage.goToHomePage();
-            objHomePage.SearchAboutItem(Universal.CurrentItem);
+            objHomePage.SearchAboutItem(item);
             objSearchPage.click_Searched_Item();
             objItemPage.Add_To_Cart(1);
-        }
-
 
 
 
@@ -67,5 +65,4 @@ public class TC_AddToCart_001 {
         driver.quit();
 
     }
-
 }

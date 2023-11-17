@@ -10,7 +10,7 @@ public class SearchPage {
         WebDriver driver;
 
 
-    By searchedItem = By.xpath( "//div[@class= \"caption\"]//h4//a[text()=\""+Universal.SearchItem+"\"]");
+    public By searchedItem = By.xpath( "//div[@class= \"caption\"]//h4//a[text()=\""+Universal.CurrentItem+"\"]");
 
 
 
@@ -23,7 +23,7 @@ public class SearchPage {
     }
 
     public void click_Searched_Item(){
-        driver.findElement(searchedItem).click();
+        driver.findElement(By.xpath( "//div[@class= \"caption\"]//h4//a[text()=\""+Universal.CurrentItem+"\"]")).click();
 
     }
 

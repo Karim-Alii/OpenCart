@@ -9,16 +9,14 @@ import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC_AddToCart_001 {
+public class TC_RemoveFromCart_002 {
+
     WebDriver driver;
     LoginPage objLogin;
     HomePage objHomePage;
     DashBoard objDashBoard;
-    SearchPage objSearchPage;
-    ItemPage objItemPage;
 
-    Universal objUniversal;
-
+    ShoppingCartPage objShoppingCartPage;
     @BeforeTest
 
     public void preCondition(){
@@ -27,9 +25,7 @@ public class TC_AddToCart_001 {
         objLogin = new LoginPage(driver);
         objHomePage = new HomePage(driver);
         objDashBoard = new DashBoard(driver);
-        objSearchPage = new SearchPage(driver);
-        objItemPage = new ItemPage(driver);
-        objUniversal = new Universal(driver);
+        objShoppingCartPage = new ShoppingCartPage(driver);
 
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -38,32 +34,17 @@ public class TC_AddToCart_001 {
         objLogin.loginToOpenCart("karim9523@gmail.com","1234");
 
     }
-
-    public String item;
-
-    @Test(priority=1)
-    public void Add_All_Items_To_Cart(){
-
-        for ( String i: Universal.SearchedItems) {
-            Universal.CurrentItem = i;
-            objHomePage.goToHomePage();
-            objHomePage.SearchAboutItem(Universal.CurrentItem);
-            objSearchPage.click_Searched_Item();
-            objItemPage.Add_To_Cart(1);
-        }
-
-
-
-
-
+    @Test(priority = 2)
+    public void Remove_All_Items(){
+        //  driver.get("https://opencart.abstracta.us/index.php?route=checkout/cart");
+        objShoppingCartPage.goToShoppingCart();
+        objShoppingCartPage.removeItemFromCart(Universal.itemToBeDeletedFromCart);
 
     }
 
     @AfterTest
 
     public void postCondition(){
-        objDashBoard.goToDashBoard();
-        objDashBoard.clickLogout();
         driver.quit();
 
     }
