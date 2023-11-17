@@ -18,7 +18,6 @@ public class TC_RemoveFromCart_002 {
 
     ShoppingCartPage objShoppingCartPage;
     @BeforeTest
-
     public void preCondition(){
 
         driver = new ChromeDriver();
@@ -35,7 +34,7 @@ public class TC_RemoveFromCart_002 {
 
     }
     @Test(priority = 2)
-    public void Remove_All_Items(){
+    public void Remove_specific_Item(){
         //  driver.get("https://opencart.abstracta.us/index.php?route=checkout/cart");
         objShoppingCartPage.goToShoppingCart();
         objShoppingCartPage.removeItemFromCart(Universal.itemToBeDeletedFromCart);
@@ -43,7 +42,6 @@ public class TC_RemoveFromCart_002 {
     }
 
     @AfterTest
-
     public void postCondition(){
         driver.quit();
 

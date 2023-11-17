@@ -45,7 +45,12 @@ public class TC_Login_001 {
         objLogin.loginToOpenCart("karim9523@gmail.com","1234");
 
 
-        objDashBoard.clickLogout();
+        String ActualTitle = driver.getTitle();
+        String ExpectedTitle = "My Account";
+        Assert.assertEquals(ActualTitle, ExpectedTitle);
+        System.out.println("Assert passed");
+
+
 
     }
 
@@ -55,8 +60,8 @@ public class TC_Login_001 {
     @AfterTest
 
     public void postCondition(){
-
-    driver.quit();
+        objDashBoard.clickLogout();
+        driver.quit();
 
     }
 
