@@ -17,6 +17,11 @@ public class ShoppingCartPage {
     @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[4]/a/i")
     WebElement shoppingCartBtn;
 
+    @FindBy(xpath = "//div[@class=\"buttons clearfix\"]//div[@class= \"pull-right\"]")
+    WebElement CheckoutBtn;
+
+
+
     String Page_URL = "https://opencart.abstracta.us/index.php?route=checkout/cart";
 
     public ShoppingCartPage(WebDriver driver) {
@@ -27,6 +32,10 @@ public class ShoppingCartPage {
 
     public void goToShoppingCart() {
         shoppingCartBtn.click();
+    }
+
+    public void clickCheckoutBtn() {
+        CheckoutBtn.click();
     }
 
     public void emptyCart() {

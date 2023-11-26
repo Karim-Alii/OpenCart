@@ -6,6 +6,7 @@
             <class name = "testCases.TC_Login_001"/>
             <class name = "testCases.TC_AddToCart_001"/>
             <class name="testCases.TC_RemoveFromCart_001"></class>
+            <class name = "testCases.TC_CheckOut_001"></class>
         </classes>
     </test>
 </suite>

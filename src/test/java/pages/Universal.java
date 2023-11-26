@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Universal {
     WebDriver driver;
-    public static String[] SearchedItems = new String[]{"iPhone","MacBook"};
+    public static String[] SearchedItems = new String[]{"MacBook","Samsung SyncMaster 941BW","iMac"};
 
 
     public static String CurrentItem;
@@ -22,6 +22,19 @@ public class Universal {
         PageFactory.initElements(driver, this);
     }
 
+
+
+    public boolean isAttribtuePresent(WebElement element, String attribute) {
+        Boolean result = false;
+        try {
+            String value = element.getAttribute(attribute);
+            if (value != null){
+                result = true;
+            }
+        } catch (Exception e) {}
+
+        return result;
+    }
 
 
     @FindBy(xpath = "//a//span[text()=\"Shopping Cart\"]")
